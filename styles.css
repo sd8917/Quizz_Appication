@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-color: #19B5FE;
+  margin: 20px 0;
+}
+h1{
+  text-align: center;
+  color: yellow;
+  margin-bottom: 20px;
+  text-shadow: 8px 4px 16px black;
+  font-size: 40px;
+  font-family: cursive;
+}
+label{
+  display: block;
+  margin: 15px 0;
+  font-family: 'PT Sans', sans-serif;
+}
+span{
+  margin-left: 8px;
+}
+#quiz-form{
+  padding: 20px 10px;
+  width: 600px;
+  background-color: rgb(22, 2, 48);
+  margin-right: 10px;
+  color: #FFA400;
+  border-radius: 6px;
+  
+}
+.scrore-wrapper{
+  background-color: whitesmoke;
+  height: 100px;
+  width: 15%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px #ccc;
+  border-radius: 6px;
+  color: black;
+}
+#quizz-wrapper{
+  display: flex;
+  justify-content: center;
+  
+}
+input[type=submit]{
+  font-size: 20px;
+  background-color: yellow;
+  border: 0;
+  padding: 10px 20px;
+  /* display: flex; */
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: 'PT Sans', sans-serif;
+
+}
+
+.divider{
+  margin: 15px 0;
+  background-color: yellow;
+  height: 1px;
+  width: 100%;
+}
+
+.correct{
+  color: green
+}
+.correct::after{
+  font-weight: 400;
+}
+.incorrect{
+  color: red;
+}
