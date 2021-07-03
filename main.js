@@ -28,7 +28,7 @@ $(document).ready(function () {
 
   }
 
-  $.get("http://5d76bf96515d1a0014085cf9.mockapi.io/quiz", function (response) {
+  $.get("https://5d76bf96515d1a0014085cf9.mockapi.io/quiz", function (response) {
 
     quizData = response;
     for (var i = 0; i < response.length; i++) {
