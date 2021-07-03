@@ -95,3 +95,7 @@ input[type=submit]{
   font-weight: 400;
   content: "   \f057";
 }
+a{
+  color: yellow;
+  font-size: 20px;
+}
