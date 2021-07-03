@@ -7,15 +7,15 @@ $(document).ready(function () {
 
 
     var section = $("<section>");
-    var question = $("<h3>").html("Q" + data.id + ". "+ data.question)
+    var question = $("<h3>").html("Q" + data.id + ". " + data.question)
 
     section.append(question);
 
     for (var j = 0; j < data.options.length; j++) {
       var optionWrapper = $("<label>").addClass("option-wrapper")
       var input = $("<input>").attr("type", "radio").attr("name",
-        "q" + data.id).attr("value", (j+1)).attr("required", "true").attr(
-          "id", "q" + data.id + "-" + (j+1)
+        "q" + data.id).attr("value", (j + 1)).attr("required", "true").attr(
+          "id", "q" + data.id + "-" + (j + 1)
         );
       var label = $("<span>").html(data.options[j])
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
       section.append(optionWrapper);
     }
     var divider = $("<div>").addClass("divider");
-    $("#quiz-form").append(section,divider);
+    $("#quiz-form").append(section, divider);
 
   }
 
@@ -52,42 +52,45 @@ $(document).ready(function () {
     }
   */
 
-  $("#quiz-form").submit(function(e){
+  $("#quiz-form").submit(function (e) {
     e.preventDefault();
+
+
+    // When the user clicks on the button, scroll to the top of the document
     
     var result = {};
     var radioButtons = $(".option-wrapper input");
-   
-    for(var j = 0; j < radioButtons.length; j++){
 
-        if(radioButtons[j].checked){
-          console.log(radioButtons[j]);
-          result[radioButtons[j].name] = radioButtons[j].value; 
-        }
+    for (var j = 0; j < radioButtons.length; j++) {
+
+      if (radioButtons[j].checked) {
+       //  console.log(radioButtons[j]);
+        result[radioButtons[j].name] = radioButtons[j].value;
+      }
 
     }
 
     // console.log(result);
 
     var score = 0;
-    
+
     //quizData == response .
 
     //CHECK IF SELECT OPTION IS CORRECT OR NOT START!!
-    for(var j = 0;j < quizData.length;j++){
+    for (var j = 0; j < quizData.length; j++) {
       var key = "q" + quizData[j].id;  // q1,q2 ..
-      
-      var selector = ("#" + (key + "-" + result[key]) + "+ span" );
 
-      if(result[key] == quizData[j].answer){
+      var selector = ("#" + (key + "-" + result[key]) + "+ span");
+
+      if (result[key] == quizData[j].answer) {
         score++
 
         //q1-1 , q2-3 
         // $(selector).html($(selector).html() + "   [correct]");
         $(selector).html($(selector).addClass("correct").html());
       }
-      else{
-        var correctOptionSelector = ("#" + (key + "-" + quizData[j].answer) + "+ span" );
+      else {
+        var correctOptionSelector = ("#" + (key + "-" + quizData[j].answer) + "+ span");
         $(correctOptionSelector).html($(correctOptionSelector).addClass("correct").html());
         $(selector).html($(selector).addClass("incorrect").html());
       }
@@ -95,10 +98,28 @@ $(document).ready(function () {
 
     console.log("scored : " + score);
 
-    $("#score").html(score + "/" + 5) ;
+    if(score>2){
+      $("#score").html("Congrats!! your score : " + score + "/" + 5).css("background-color", "yellow");
+    }
+    else{
+      $("#score").html("Need to Improve score : " + score + "/" + 5);
+    }
+  
     // /CHECK IF SELECT OPTION IS CORRECT OR NOT END!!?
 
+
+    //Handle the scrolling after submitting the quizz
+    $('html,body').animate({scrollTop:0},1000);
+
+    //onsubmit hide submit buttone
+
+   
+   $(":submit").css("display" , "none");
+
+
   })
+
+
 
 
 });

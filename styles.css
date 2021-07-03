@@ -44,11 +44,15 @@ span{
   box-shadow: 0 0 4px #ccc;
   border-radius: 6px;
   color: black;
+  padding: 20px;
 }
 #quizz-wrapper{
   display: flex;
   justify-content: center;
   
+}
+#score{
+  padding: 10px;
 }
 input[type=submit]{
   font-size: 20px;
@@ -73,11 +77,21 @@ input[type=submit]{
 }
 
 .correct{
-  color: green
+  color: green;
+  
 }
 .correct::after{
+  font-family: "Font Awesome 5 Free";
   font-weight: 400;
+  content: "   \f058";
 }
 .incorrect{
   color: red;
+  
+}
+
+.incorrect::after{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "   \f057";
 }
